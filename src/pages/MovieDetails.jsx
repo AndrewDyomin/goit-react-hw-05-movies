@@ -1,13 +1,16 @@
 import { getMovieDetails } from "api";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import film from 'img/Film-Clapboard.png'
 
 const MovieDetails = () => {
 
-const { movieId, cast, reviews } = useParams();
-
+const params = useParams();
+const movieId = params.movieId;
 const [movie, setMovie] = useState(null);
+const location = useLocation();
+const backLinkHref = location.state?.from ?? "/products";;
 
 useEffect(() => {
     async function fetchMovie () {
@@ -21,16 +24,23 @@ useEffect(() => {
     fetchMovie();
     },
     [movieId]);
-    console.log(movie);
 
     return (
         <>
             {movie && 
             <div>
+                <Link to={backLinkHref}><button>Go back</button></Link>
                 <div>
+                    {movie.poster_path === null ? <img 
+                    src={film}
+                    alt="default image"
+                    width='150px'
+                    /> 
+                    : 
                     <img 
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
-                    alt={`${movie.title} poster`} />
+                    alt={`${movie.title} poster`} 
+                    width='250px'/>}
                     <div>
                         <h2>{movie.title}</h2>
                         <p>User score: {Math.round(movie.vote_average * 10)}%</p>
@@ -51,16 +61,16 @@ useEffect(() => {
                     <p>Additional information</p>
                     <ul>
                         <li>
-                            <Link to={`/movies/${movie.id}/cast`}>Cast</Link>
+                            <Link to='cast'>Cast</Link>
                         </li>
                         <li>
-                            <Link to={`/movies/${movie.id}/reviews`}>Reviews</Link>
+                            <Link to='reviews'>Reviews</Link>
                         </li>
                     </ul>
                 </div>
                 <hr/>
+                <Outlet />
             </div>}
- 
         </>
     );
 };

@@ -19,3 +19,20 @@ export const getMovieDetails = async (movieId) => {
   const response = await axios.get(`${getMovie}/${movieId}`, options);
   return(response.data);
 };
+
+export const getMovieCredits = async (movieId) => {
+  const response = await axios.get(`${getMovie}/${movieId}/credits`, options);
+  return(response.data.cast);
+};
+
+export const getMovieReviews = async (movieId) => {
+  const response = await axios.get(`${getMovie}/${movieId}/reviews`, options);
+  // console.log(response.data.results);
+  return(response.data.results);
+};
+
+export const getQuery = async (q) => {
+  const response = await axios.get(`/search${getMovie}?query=${q}`, options);
+  // console.log(response.data.results);
+  return(response.data.results);
+};

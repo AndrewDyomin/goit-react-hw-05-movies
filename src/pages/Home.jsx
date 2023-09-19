@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTrendList } from "api";
-import { MovieDetails } from "pages/MovieDetails";
+import film from 'img/Film-Clapboard.png';
 
 
 export const Home = () => {
@@ -19,7 +19,6 @@ useEffect(() => {
     
 },
     [trendList]);
-console.log(trendList);
 return (
     <>
         <h1>Tranding today</h1>
@@ -27,6 +26,16 @@ return (
             {trendList.map(movie => (
                 <li key={movie.id}>
                     <Link to={`/movies/${movie.id}`}>
+                        {movie.poster_path === null ? <img 
+                        src={film}
+                        alt="default image"
+                        width='150px'
+                        /> 
+                        : 
+                        <img 
+                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
+                        alt={`${movie.id} photo`} 
+                        width='150px'/>}
                         <p>{movie.title}</p>
                     </Link>
                 </li>
