@@ -6,16 +6,11 @@ import { Cast } from "./Cast/Cast";
 import { Reviews } from "./Reviews/Reviews";
 import MovieDetails from "pages/MovieDetails";
 
-
-
-// const notify = () => toast('Please, enter your query.');
-
 export const App = () => {
 
 return (
   <>
     <GlobalStyle />
-    <Toaster />
     <nav>
       <ul>
         <li><NavLink to="/">Home</NavLink></li>
