@@ -1,5 +1,4 @@
 import { Routes, Route, NavLink } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
 import { GlobalStyle } from './Global-style';
 import { Home } from "pages/Home";
 import { Movies } from "pages/Movies";

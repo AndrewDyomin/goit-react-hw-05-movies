@@ -28,13 +28,13 @@ return (
                     <Link to={`/movies/${movie.id}`}>
                         {movie.poster_path === null ? <img 
                         src={film}
-                        alt="default image"
+                        alt="default"
                         width='150px'
                         /> 
                         : 
                         <img 
                         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
-                        alt={`${movie.id} photo`} 
+                        alt={`${movie.id}`} 
                         width='150px'/>}
                         <p>{movie.title}</p>
                     </Link>

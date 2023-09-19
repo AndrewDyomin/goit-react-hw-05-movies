@@ -33,13 +33,13 @@ useEffect(() => {
                 <div>
                     {movie.poster_path === null ? <img 
                     src={film}
-                    alt="default image"
+                    alt="default"
                     width='150px'
                     /> 
                     : 
                     <img 
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
-                    alt={`${movie.title} poster`} 
+                    alt={`${movie.title}`} 
                     width='250px'/>}
                     <div>
                         <h2>{movie.title}</h2>

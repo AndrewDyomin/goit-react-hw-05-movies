@@ -6,7 +6,6 @@ export const Reviews = () => {
 
 const { movieId } = useParams();
 const [movieReviews, setMovieReviews] = useState(null);
-const sorry = <p>We don't have any reviews for this movie.</p>;
 
 useEffect(() => {
     async function fetchReviews() {
@@ -16,7 +15,7 @@ useEffect(() => {
         }
     };
     fetchReviews();
-}, []);
+}, [movieId, movieReviews]);
 
     return (
         <>
