@@ -4,7 +4,7 @@ import { getQuery } from "api";
 import film from 'img/Film-Clapboard.png'
 
 
-export const Movies = () => {
+const Movies = () => {
     const [resultList, setResultList] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const q = searchParams.get("q");
@@ -59,3 +59,5 @@ export const Movies = () => {
         </>
     );
 };
+
+export default Movies;

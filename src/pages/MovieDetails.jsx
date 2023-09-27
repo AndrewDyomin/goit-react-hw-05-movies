@@ -1,5 +1,5 @@
 import { getMovieDetails } from "api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import film from 'img/Film-Clapboard.png'
@@ -61,15 +61,17 @@ useEffect(() => {
                     <p>Additional information</p>
                     <ul>
                         <li>
-                            <Link to='cast'>Cast</Link>
+                            <Link to='cast' state={{ from: backLinkHref }}>Cast</Link>
                         </li>
                         <li>
-                            <Link to='reviews'>Reviews</Link>
+                            <Link to='reviews' state={{ from: backLinkHref }}>Reviews</Link>
                         </li>
                     </ul>
                 </div>
                 <hr/>
-                <Outlet />
+                <Suspense fallback={<p>Loading...</p>}>
+                    <Outlet />
+                </Suspense>
             </div>}
         </>
     );

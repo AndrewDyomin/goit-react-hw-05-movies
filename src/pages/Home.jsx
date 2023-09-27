@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { getTrendList } from "api";
 import film from 'img/Film-Clapboard.png';
 
-
-export const Home = () => {
+const Home = () => {
 
 const [ trendList, setTrendList ] = useState([]);
 
@@ -44,3 +43,5 @@ return (
     </>
 );
 };
+
+export default Home;

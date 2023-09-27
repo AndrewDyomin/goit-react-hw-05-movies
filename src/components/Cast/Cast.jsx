@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getMovieCredits } from "api";
 import avatar from 'img/Man-Avatar.jpg'
 
-export const Cast = () => {
+const Cast = () => {
 
 const { movieId } = useParams();
 const [movieCast, setMovieCast] = useState(null);
@@ -43,3 +43,5 @@ useEffect(() => {
         </>
     );
 };
+
+export default Cast;
